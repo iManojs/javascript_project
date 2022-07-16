@@ -21,9 +21,7 @@ const playerChoice  =() =>{
     
     playerSelection = prompt(
       "Do you choose rock, paper or scissors?"
-    ).toLocaleLowerCase(); // player input
-  
-    //display user input in lowercase   
+    ).toLocaleLowerCase(); // get input and display user input in lowercase   
    
     while (
       playerSelection !== "paper" &&
@@ -51,7 +49,7 @@ const  playRound = (playerSelection, computerSelection) =>  {
       else if (playerSelection == computerSelection){
         scores.tieScore++;
         return 'Its a tie';
-    } //if player input rock compare to rock, its a tie
+    } 
     }
 
     const game = () => {
