@@ -54,30 +54,33 @@ const  playRound = (playerSelection, computerSelection) =>  {
     } //if player input rock compare to rock, its a tie
     }
 
-    for(i=1; i<=5; i++){
-        const playerInput = playerChoice()
-        const computerInput = computerPlay()
-        console.log("You chose " + playerInput)
-        console.log("Computer chose " + computerInput)
-        result_array.push('Game :' +i + '||| playerInput  : ' +playerInput  + '||| computerInput  : '+computerInput +  ' ||| Results  : ' + playRound(playerInput,computerInput))
-    }
-    for(i =  0; i <result_array.length ;i++){
-        console.log(result_array[i])
-    }
+    const game = () => {
+        for(i=1; i<=5; i++){
+            const playerInput = playerChoice()
+            const computerInput = computerPlay()
+            console.log("You chose " + playerInput)
+            console.log("Computer chose " + computerInput)
+            result_array.push('Game :' +i + '||| playerInput  : ' +playerInput  + '||| computerInput  : '+computerInput +  ' ||| Results  : ' + playRound(playerInput,computerInput))
+        }
+        for(i =  0; i <result_array.length ;i++){
+            console.log(result_array[i])
+        }
+        
+        let highScore = Object.keys(scores).reduce(function(a, b){ return scores[a] > scores[b] ? a : b });
+        switch(highScore){
+            case 'playerScore':
+                console.log('You won the game yayyyy!!')
+                break;
+            case 'computerScore':
+                console.log('Computer won the game')
+                break;
+            case 'tieScore':
+                console.log('Its a Tie match huhu')
+                break;
     
-    let highScore = Object.keys(scores).reduce(function(a, b){ return scores[a] > scores[b] ? a : b });
-    switch(highScore){
-        case 'playerScore':
-            console.log('You won the game yayyyy!!')
-            break;
-        case 'computerScore':
-            console.log('Computer won the game')
-            break;
-        case 'tieScore':
-            console.log('Its a Tie match huhu')
-            break;
-
+        }
+    
     }
 
-
+game()
     
